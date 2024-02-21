@@ -133,8 +133,22 @@ if num_rounds == "":
 
 # game loops ends here
 while rounds_played < num_rounds:
+
+    if mode == "infinite":
+        rounds_heading = f"\n Round {rounds_played} (Infinite Mode)"
+    else:
+        rounds_heading = f"\n Round {rounds_played} of {num_rounds}"
     input("Choose: ")
-    rounds_played += 1 
+    rounds_played += 1
+    print("rounds played: ", rounds_played)
+
+    # but infinite?
+    if mode == "infinite":
+        num_rounds += 1
+
+    print("num rounds: ", num_rounds)
+
+
 user_choice = string_checker("Choose: ", rps_list)
 print("You chose: ", user_choice)
 
