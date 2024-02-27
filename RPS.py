@@ -118,6 +118,9 @@ statement_generator("Rock, Paper, Scissors", "🗿🏳️🔪")
 # instructions
 want_instructions = string_checker("Do you want to see the instructions?", yes_no_list)
 
+if want_instructions == "yes":
+    instructions()
+
 # Ask user for number of rounds
 num_rounds = num_check("How many rounds would you like? Push <enter> for 🚂infinite mode🚂: ")
 
@@ -161,7 +164,7 @@ while rounds_played < num_rounds:
         feedback = "🦄🦄 You won :)) 🦄🦄"
 
     round_feedback = f"{user_choice} vs {comp_choice}, {feedback}"
-    history_item = f"Round: {rounds_played} - {round_feedback}"
+    history_item = f"Round: {rounds_played + 1} - {round_feedback}"
 
     print(round_feedback)
     game_history.append(history_item)
@@ -178,25 +181,29 @@ while rounds_played < num_rounds:
         rounds_heading = f"\n Round {rounds_played} of {num_rounds}"
 
 # stats for nerds
+if rounds_played > 0:
 
-rounds_won = rounds_played - rounds_tied - rounds_lost
-percent_won = rounds_won / rounds_played * 100
-percent_lost = rounds_lost / rounds_played * 100
-percent_tied = 100 - percent_won - percent_lost
+    rounds_won = rounds_played - rounds_tied - rounds_lost
+    percent_won = rounds_won / rounds_played * 100
+    percent_lost = rounds_lost / rounds_played * 100
+    percent_tied = 100 - percent_won - percent_lost
 
-# put stats
+    # put stats
 
-print("💶💶💶 Game Statistics 💶💶💶")
-print(f"🦄 Won: {percent_won:.2f} \t"
-      f"🌄 Lost: {percent_lost:.2f} \t"
-      f"🐲 Tied: {percent_tied:.2f} \t")
+    print("💶💶💶 Game Statistics 💶💶💶")
 
-# ask user for history
-see_history = string_checker("Do you want to see your game history?", yes_no_list)
-if see_history == "yes":
-    for item in game_history:
-        print(item)
+    print(f"🦄 Won: {percent_won:.2f} \t"
+          f"🌄 Lost: {percent_lost:.2f} \t"
+          f"🐲 Tied: {percent_tied:.2f} \t")
 
-print("   Thank you for playing")
+    # ask user for history
+    see_history = string_checker("Do you want to see your game history?", yes_no_list)
+    if see_history == "yes":
+        for item in game_history:
+            print(item)
+
+else: "._."
+
+print("           Thank you for playing")
 statement_generator("Rock, Paper, Scissors", "🗿🏳️🔪")
 print()
