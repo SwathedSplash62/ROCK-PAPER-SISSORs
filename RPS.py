@@ -126,7 +126,7 @@ num_rounds = num_check("How many rounds would you like? Push <enter> for 🚂inf
 
 if num_rounds == "":
     mode = "infinite"
-    num_rounds = 20
+    num_rounds = 5
 
 # game loops ends here
 while rounds_played < num_rounds:
@@ -192,17 +192,22 @@ if rounds_played > 0:
 
     print("💶💶💶 Game Statistics 💶💶💶")
 
-    print(f"🦄 Won: {percent_won:.2f} \t"
-          f"🌄 Lost: {percent_lost:.2f} \t"
-          f"🐲 Tied: {percent_tied:.2f} \t")
+    print(f"🦄 Won: {percent_won:.2f} \t")
+    print()
 
+    print(f"🌄 Lost: {percent_lost:.2f} \t")
+    print()
+
+    print(f"🐲 Tied: {percent_tied:.2f} \t")
+    print()
     # ask user for history
     see_history = string_checker("Do you want to see your game history?", yes_no_list)
     if see_history == "yes":
         for item in game_history:
             print(item)
 
-else: "._."
+else:
+    "._."
 
 print("           Thank you for playing")
 statement_generator("Rock, Paper, Scissors", "🗿🏳️🔪")
